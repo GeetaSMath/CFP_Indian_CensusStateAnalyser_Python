@@ -1,2 +1,2 @@
 [pytest]
-python_files=tests/test_indian_test_analyser_pytest.py
+python_files=tests/test_stateanlyser_by_pytest.py
