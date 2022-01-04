@@ -5,4 +5,3 @@ library required to build project -> pip install pandas
 imported library -> csv file to read data from the file
 created file -> indian_census_analyser.py
 requirements file -> added because to add required version of installation library
-so it will update by itself,once we run the pip freeze > filename command
