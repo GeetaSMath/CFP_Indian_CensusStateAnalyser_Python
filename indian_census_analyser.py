@@ -1,3 +1,5 @@
+import csv
+
 import pandas as pd
 from indian_census_exception import IndianCensusException
 
@@ -35,9 +37,19 @@ class IndianStatesCensus:
         else:
             raise IndianCensusException("Invalid File Name")
 
+    def delimitor(self, csv_data):
+        data = open(csv_data)
+        sniffer = csv.Sniffer()
+        sniff_data = sniffer.sniff(data.read())
+        if not sniff_data.delimiter == ',':
+            raise IndianCensusException("Delimitor Not Matched")
+        else:
+            return sniff_data.delimiter
+
 
 if __name__ == '__main__':
     csv_data = IndianStatesCensus()
     file = 'C:/Users/Geetha S Matha/Desktop/IndianCensus - Sheet1.csv'
     print(csv_data.count_records(file))
     print(csv_data.csv_file_correct(file))
+    print(csv_data.delimitor(file))
