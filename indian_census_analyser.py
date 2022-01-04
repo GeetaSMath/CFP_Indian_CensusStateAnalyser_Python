@@ -5,21 +5,32 @@ from indian_census_exception import IndianCensusException
 class IndianStatesCensus:
 
     def state_census_problem(self, file):
-        '''This Method Is Used To Load
-            The CSV File'''
+        """
+
+        :param file: file
+        :return: data
+        """
         data = pd.read_csv(file)
         return data
 
     def count_records(self, file):
-        '''This method is used to count
-            the number of records present in the csv file'''
+        """
+
+        :param file: file
+        :return: data.shape[0]
+        """
         data = pd.read_csv(file)
         return data.shape[0]
 
     def csv_file_correct(self, file):
+        """
+
+        :param file: file
+        :return: .csv to read extension
+        """
         data = open(file)
-        list1= data.name.endswith(".csv")
-        if list1 == True:
+        items= data.name.endswith(".csv")
+        if items == True:
             return '.csv'
         else:
             raise IndianCensusException("Invalid File Name")
