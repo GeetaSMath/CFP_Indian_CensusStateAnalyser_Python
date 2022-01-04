@@ -46,6 +46,15 @@ class IndianStatesCensus:
         else:
             return sniff_data.delimiter
 
+    def header_validate(self, csv_data):
+        data = open(csv_data)
+        sniffer = csv.Sniffer()
+        sniff_data = sniffer.has_header(data.read())
+        if not sniff_data:
+            raise IndianCensusException("Header Not Matched")
+        else:
+            return sniff_data
+
 
 if __name__ == '__main__':
     csv_data = IndianStatesCensus()
@@ -53,3 +62,4 @@ if __name__ == '__main__':
     print(csv_data.count_records(file))
     print(csv_data.csv_file_correct(file))
     print(csv_data.delimitor(file))
+    print(csv_data.header_validate(file))

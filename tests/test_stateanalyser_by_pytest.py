@@ -60,3 +60,18 @@ class TestIndianStateCensusProblem:
         with pytest.raises(IndianCensusException) as exception:
             test_indian_states_census.delimitor(self.txt_file)
         assert exception.value.message == "Delimitor Not Matched"
+
+    def test_header_validate(self, test_indian_states_census):
+        expected = True
+        acctual = test_indian_states_census.header_validate(self.csv_file)
+        assert acctual == expected
+
+    def test_not_header_validate(self, test_indian_states_census):
+        """
+
+        :param test_indian_states_census:
+        :return:
+        """
+        with pytest.raises(IndianCensusException) as exception:
+            test_indian_states_census.header_validate(self.txt_file)
+        assert exception.value.message == "Header Not Matched"
