@@ -50,6 +50,7 @@ class IndianStatesCensus:
         data = open(csv_data)
         sniffer = csv.Sniffer()
         sniff_data = sniffer.has_header(data.read())
+        print(sniff_data)
         if not sniff_data:
             raise IndianCensusException("Header Not Matched")
         else:
@@ -58,8 +59,9 @@ class IndianStatesCensus:
 
 if __name__ == '__main__':
     csv_data = IndianStatesCensus()
-    file = 'C:/Users/Geetha S Matha/Desktop/IndianCensus - Sheet1.csv'
-    print(csv_data.count_records(file))
-    print(csv_data.csv_file_correct(file))
-    print(csv_data.delimitor(file))
+    file = 'C:/Users/Geetha S Matha/Desktop/email-password-recovery-code.tx.txt'
+    # file = 'C:/Users/Geetha S Matha/Desktop/IndianCensus - Sheet1.csv'
+    # print(csv_data.count_records(file))
+    # print(csv_data.csv_file_correct(file))
+    # print(csv_data.delimitor(file))
     print(csv_data.header_validate(file))
