@@ -3,7 +3,6 @@ import csv
 import pandas as pd
 from indian_census_exception import IndianCensusException
 
-
 class IndianStatesCensus:
 
     def state_census_problem(self, file):
@@ -17,7 +16,7 @@ class IndianStatesCensus:
 
     def count_records(self, file):
         """
-
+         checking number of records which is existed in file
         :param file: file
         :return: data.shape[0]
         """
@@ -26,7 +25,7 @@ class IndianStatesCensus:
 
     def csv_file_correct(self, file):
         """
-
+         checking extension of csv file
         :param file: file
         :return: .csv to read extension
         """
@@ -38,6 +37,11 @@ class IndianStatesCensus:
             raise IndianCensusException("Invalid File Name")
 
     def delimitor(self, csv_data):
+        """
+        seperated file by , csv_data
+        :param csv_data:
+        :return: sniff_data.delimiter
+        """
         data = open(csv_data)
         sniffer = csv.Sniffer()
         sniff_data = sniffer.sniff(data.read())
@@ -47,6 +51,11 @@ class IndianStatesCensus:
             return sniff_data.delimiter
 
     def header_validate(self, csv_data):
+        """
+         header_validate csv_data
+        :param csv_data:
+        :return:
+        """
         data = open(csv_data)
         sniffer = csv.Sniffer()
         sniff_data = sniffer.has_header(data.read())
