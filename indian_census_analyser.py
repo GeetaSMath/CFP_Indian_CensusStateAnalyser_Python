@@ -38,6 +38,11 @@ class IndianStatesCensus:
             raise IndianCensusException("Invalid File Name")
 
     def delimitor(self, csv_data):
+        """
+
+        :param csv_data:
+        :return:
+        """
         data = open(csv_data)
         sniffer = csv.Sniffer()
         sniff_data = sniffer.sniff(data.read())
